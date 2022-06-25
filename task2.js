@@ -1,6 +1,6 @@
 const getmonth = (callback) => {
   setTimeout(() => {
-    let error = false;
+    let error = true;
     let month = ['Janiary', 'February', 'March', 'April', 'May', 'Juni', 'July', 'August', 'September', 'October', 'November', 'Desember'];
     if (!error) {
       callback(null, month);
@@ -10,24 +10,10 @@ const getmonth = (callback) => {
   }, 4000);
 };
 
-let display = function (a, b) {
+getmonth((err, data) => {
   try {
-    b.map((el) => console.log(el));
-  } catch {
-    console.log(a.message);
+    console.log(data);
+  } catch (e) {
+    console.log(err);
   }
-};
-
-getmonth(display);
-
-// display(null, ['sdfsdf', 'afadf', 'adfad']);
-
-// console.log(true == null);
-
-// getmonth();
-
-// let month = [1, 1, 1, 2, 4, 6, 8, 9];
-
-// month.map(function (month) {
-//   console.log(month);
-// });
+});
